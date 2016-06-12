@@ -1,0 +1,58 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors weilei.zhu (purelite.zhu@gmail.com)
+ * @date    2016-03-16 13:59:28
+ * @version $Id$
+ */
+*{
+	margin: 0;
+	padding: 0;
+}
+html{
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	-webkit-tap-highlight-color:transparent;
+	-webkit-user-select:none
+}
+body{
+	-webkit-overflow-scrolling:touch;
+	/*background: #fff;*/
+	font-family: "Microsoft YaHei";
+	margin: 0 auto;
+	overflow-x: hidden;
+	color: #000;
+	padding-bottom: 50px;
+}
+h1,h2,h3,h4,h5,h6{
+	font-size:100%;
+	font-weight:normal;
+}
+img{
+	border:none;
+	vertical-align:top;
+}
+ol,ul,li{
+	list-style:none;
+}
+a{
+	text-decoration: none;
+}
+em,i{
+	font-style:normal;
+}
+table{
+	border-collapse:collapse;
+	border-spacing:0;
+}
+textarea{
+	overflow:auto;
+	resize:none;
+}
+a,button,input,optgroup,select,textarea {
+    -webkit-tap-highlight-color:rgba(0,0,0,0); 
+}
+a, img {
+    -webkit-touch-callout: none; 
+}
+

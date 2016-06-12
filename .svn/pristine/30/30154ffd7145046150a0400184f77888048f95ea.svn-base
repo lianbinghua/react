@@ -1,0 +1,8 @@
+@charset "UTF-8";
+.service_provision{ 
+	width:100%; height:auto;
+	.pd10{ padding: 10px;}
+	.service_pro_tit{ height:35px; line-height:35px; font-size:16px;}
+	.help_ptit{ height:35px; line-height:35px; font-size:14px;}
+	.help_ptext{ font-size:12px; line-height:18px;}
+}

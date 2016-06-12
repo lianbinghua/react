@@ -1,0 +1,31 @@
+/**
+ * 
+ * @authors weilei.zhu (purelite.zhu@gmail.com)
+ * @date    2016-03-10 18:18:44
+ * @version $Id$
+ */
+
+import ButtonComp from 'comp/button/button'
+import GoodsListComp from 'comp/goodsList/goodsList'
+import { Link } from 'react-router'
+import { selectReddit, fetchPostsIfNeeded, invalidateReddit } from 'assets/actions/home'
+import { connect } from 'react-redux'
+
+import './userStyle'
+var User = React.createClass({
+	   
+		componentDidMount:function() {
+		    //const { dispatch, selectedReddit } = this.props
+		   // dispatch(fetchPostsIfNeeded(selectedReddit))
+		},
+		render:function(){
+			return(
+				<div className="user">
+						<h1>这是用户中心</h1>
+						<GoodsListComp/>
+				</div>
+			) 
+		}
+});
+//export default connect()(User)
+module.exports = User;

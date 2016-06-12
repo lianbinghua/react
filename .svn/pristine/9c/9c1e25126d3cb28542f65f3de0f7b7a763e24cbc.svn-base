@@ -1,0 +1,33 @@
+/**
+ * 
+ * @authors weilei.zhu (purelite.zhu@gmail.com)
+ * @date    2016-03-09 11:27:38
+ * @version $Id$
+ */
+import './buttonStyle'
+var  ButtonComp = React.createClass({
+		getInitialState: function() {
+			return {
+				curStatus: false,
+				style:{
+					width:"100%",
+					height:"80px",
+					background:"#e4e4e4",
+					lineHeight:"80px",
+					textAlign:"center"
+				},
+				name:"BUTTON"
+			}
+		},
+		render:function(){
+			return <div style={this.state.style} onClick={this.props.handleClick}>{this.props.name || this.state.name}</div>
+		}
+});
+
+// var ButtonComp = function(props) {
+//   return <div>
+//     	{props.name	}
+//   		</div>;
+// };
+module.exports = ButtonComp;
+

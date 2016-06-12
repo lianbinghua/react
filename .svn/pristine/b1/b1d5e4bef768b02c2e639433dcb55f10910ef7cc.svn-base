@@ -1,0 +1,30 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors weilei.zhu (purelite.zhu@gmail.com)
+ * @date    2016-03-15 10:32:41
+ * @version $Id$
+ */
+
+.logistics-detail{	
+	h2{
+	    height: 40px;
+	    line-height: 40px;
+	    border-bottom: #d8d8d8 solid 1px;
+	    font-size: 14px;
+	    padding: 0 10px;
+	}
+	h2 span{
+	    font-weight: bold;
+	}
+	ul li{
+	     border-bottom: #d8d8d8 solid 1px;
+	     font-size: 14px;
+	     padding: 5px 10px;
+	}
+	ul li span{
+	    color: #999;
+	    font-size: 12px;
+	}
+
+}

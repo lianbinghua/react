@@ -1,0 +1,51 @@
+import { Component } from 'react';
+import { createStore, combineReducers,compose,applyMiddleware} from 'redux'
+import { Provider } from 'react-redux'
+import { Router, Route, browserHistory } from 'react-router'
+import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
+import thunk from 'redux-thunk'
+//import rootRoute from './resource/assets/route/config'
+import rootReducer from 'assets/reducers/home'
+import reduxLogger from 'redux-logger'
+import Home from 'page/home/home'
+import Detail from 'page/goodsDetail/goodsDetail'
+import Tutor from 'page/tutor/tutor'
+import Discover from 'page/discover/discover'
+import User from 'page/user/user'
+import NotFound from 'page/notFound/notFound'
+import DevTools from '../../devTools/DevTools';
+import { devTools, persistState } from 'redux-devtools';
+
+
+const logger = reduxLogger();
+const createStoreWithMiddleware = compose(
+		applyMiddleware(thunk,logger),
+		DevTools.instrument(),
+		persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))
+	)(createStore);
+const reducer = combineReducers({
+  routing: routerReducer,
+  reducer: rootReducer
+})
+const store = createStoreWithMiddleware(reducer)
+const history = syncHistoryWithStore(browserHistory, store)
+
+export default class Root extends Component{
+	render(){
+		return(
+			<div>
+				<Provider store={store}>
+				  	<Router history={history}>
+					  	<Route path='/' component={Home} />
+			            <Route path='/tutor' component={Tutor}/>
+			            <Route path='/discover' component={Discover}/>
+			            <Route path='/user' component={User}/>
+			            <Route path='/detail/:type/:key' component={Detail}/>
+			            <Route path="*" component={NotFound}/>
+				  	</Router>
+				</Provider>
+				<DevTools store={store}/>
+			</div>
+		)
+	}
+}

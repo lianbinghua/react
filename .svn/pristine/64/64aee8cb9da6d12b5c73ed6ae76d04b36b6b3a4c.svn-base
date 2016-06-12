@@ -1,0 +1,45 @@
+import Home from 'page/home/home'
+import Header from 'comp/header/header'
+import Footer from 'comp/footer/footer'
+var Root = React.createClass({
+	// getDefaultProps:function(){
+	// 	return {
+	// 		showHeader:true,
+	// 		showFooter:true
+	// 	}
+	// },
+	getInitialState:function(){
+		return {
+			h_show:true,
+			f_show:true,
+			showHeader:function(){
+				this.setState({
+					h_show:!this.h_show
+				})
+			},
+			showFooter:function(){
+				this.setState({
+					f_show:!this.f_show
+				})
+			}
+		}
+	},
+	render:function(){
+		console.log('ROOTProps==',this.props,this)
+		var  Content = this.props.default || this.props.children;
+		React.Children.map(Content, child => {
+			Object.assign({},child,{
+	            rootState:this.state
+	        })
+	        debugger
+		})
+		return(
+			<div>
+				<Header  Fprop = {this.props}/>
+					{Content || <Home/>}
+				<Footer  Fprop = {this.props}/>
+			</div>
+		)
+	}
+})
+module.exports = Root;

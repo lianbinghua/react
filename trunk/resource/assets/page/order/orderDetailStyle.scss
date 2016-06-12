@@ -1,0 +1,241 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors weilei.zhu (purelite.zhu@gmail.com)
+ * @date    2016-03-15 10:32:41
+ * @version $Id$
+ */
+
+.orderDetail{
+	background:#f2f2f2;	
+	.hide{
+		display: none;
+	}
+	.show{
+		display: block;
+	}
+	.order-info{
+	    background:#fff;
+	    margin-bottom: 12px;
+	}
+	.order-info h2{
+	    padding: 10px;
+	    font-size: 15px;
+	    color: #727272;  
+	    border-bottom: 1px solid #e3e3e3;
+	}
+	.order-info h2 span.icons{
+	   display: inline-block;   
+	   background: url("http://img01.ttmimg.com/www/images/stonescms/4884560df40e89b3.png") no-repeat;
+	   background-size: 94px auto;
+	   width: 18px;
+	   height: 20px;
+	   margin-right: 10px;
+	   vertical-align: -5px;
+	}
+	.order-info ul{
+	    padding-bottom: 14px;
+	    border-bottom: 1px solid #e3e3e3;
+	}
+	.order-info ul li{
+	    font-size: 13px;
+	    color: #727272;
+	    padding:14px 15px 0;
+	}
+	.order-info div p{ 
+	    padding: 14px 15px;
+	    color: #727272;
+	    font-size: 13px;
+	}
+	.consignee-info{
+	    background: #fff;
+	    margin-bottom: 12px;
+	}
+	.consignee-info h2{
+	    padding: 10px;
+	    font-size: 15px;
+	    color: #727272;
+	    border-bottom: 1px solid #e3e3e3;
+	}
+	.consignee-info h2 span.icons{
+	   display: inline-block;
+	   background: url("http://img01.ttmimg.com/www/images/stonescms/4884560df40e89b3.png") no-repeat;
+	   background-size: 94px auto;
+	   width: 18px;
+	   height: 20px;
+	   margin-right: 10px;
+	   vertical-align: -5px;
+	   background-position: -22px 0;
+	}
+	.consignee-info div{
+	    padding: 10px 15px;
+	    font-size: 14px;
+	}
+	.consignee-info div p{
+	    color: #727272;
+	}
+	.consignee-info div p:first-child{
+	    margin-bottom: 10px;
+	}
+	.consignee-info div p:first-child span:last-child{
+	    float: right;
+	}
+	.consignee-info div p span{
+	    color: #363636;
+	    font-size: 14px; 
+	}
+	.logistics-info{
+	    background: #fff;
+	    margin-bottom: 12px;
+	}
+	.logistics-info h2{
+	    padding: 10px;
+	    font-size: 15px;
+	    color: #555f69;
+	    border-bottom: 1px solid #e3e3e3;
+	}
+	.logistics-info h2 span.icons{
+	    display: inline-block;
+	    background: url("http://img01.ttmimg.com/www/images/stonescms/4884560df40e89b3.png") no-repeat;
+	    background-size: 94px auto;
+	    width: 22px;
+	    height: 20px;
+	    margin-right: 10px;
+	    vertical-align: -5px;
+	    background-position: -47px 0;
+	}
+	.logistics-info div{
+	    padding: 10px 15px;
+	    font-size: 13px;
+	    color: #363636;
+	    position: relative;
+	} 
+	.logistics-info div a{
+	    color: #363636;
+	}
+	.logistics-info div p:first-child{
+	    margin-bottom: 10px;
+	    margin-right: 20px;
+	}
+	.logistics-info div p:last-child{
+	    color: #555f69;
+	    font-size: 12px;      
+	}
+	.logistics-info div i{
+	    background: url("http://img01.ttmimg.com/www/images/stonescms/eb13ddf7a7861552.png") no-repeat;
+	    background-size: 178px auto;
+	    position: absolute;
+	    width: 20px;
+	    height: 20px;
+	    display: block; 
+	    background-position: -160px -37px;
+	    top: 26px;
+	    right: 12px;
+	}
+	.detail-good-info{
+		background: #fff;	
+	}
+	.detail-good-info  h2{
+	    padding: 10px;
+	    font-size: 15px;
+	    color: #555f69;
+	    border-bottom: 1px solid #e3e3e3;
+	}
+	.detail-good-info  h2 span.icons{
+	    display: inline-block;
+	    background: url("http://img01.ttmimg.com/www/images/stonescms/4884560df40e89b3.png") no-repeat;
+	    background-size: 94px auto;
+	    width: 22px;
+	    height: 20px;
+	    margin-right: 10px;
+	    vertical-align: -5px;
+	    background-position: -72px 0;
+	}
+	.detail-good-info ul li {
+		padding: 14px 15px;
+		position: relative;  
+		border-bottom:1px solid #e3e3e3;
+	}
+
+	.detail-good-info ul li div.good-content{	
+		margin-right: 74px;
+	    height: 62px;
+	}
+	.detail-good-info ul li div.good-content .good-image{
+		width: 60px;
+	    height: 60px;
+	    float: left;
+	    margin-right: 12px;
+	    position: relative;
+	}
+	.detail-good-info ul li div.good-content .good-image p{
+	   background: #e3e3e3;
+	   width: 62px;
+	   font-size: 12px;
+	   height: 20px;
+	   text-align: center;
+	   line-height: 20px;
+	   position: absolute;
+	   bottom: -1px;
+	   border-bottom-right-radius: 5px;
+	   border-bottom-left-radius: 5px;
+	}
+	.detail-good-info ul li div.good-content .good-image img{
+		width: 60px;
+		height: 60px;
+		border-radius: 2px;
+		border:1px solid #e3e3e3;	
+	}
+	.detail-good-info ul li div.good-content dl{
+		height: 62px;
+		position: relative;
+	}
+	.detail-good-info ul li div.good-content dl dt{
+		font-size: 14px;
+		color: #33383b;
+	    font-size: 14px;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+	    display: -webkit-box;
+	    -webkit-line-clamp: 2;
+	    -webkit-box-orient: vertical;
+	}
+	.detail-good-info ul li div.good-content dl dt span{
+		font-size: 11px;
+		color: #f06450;
+		border:1px solid #f06450;
+		border-radius:2px;
+		margin-right: 4px;
+		padding:0 2px;
+	}
+	.detail-good-info ul li div.price-number{
+		position: absolute;
+	    right: 15px;
+	    top: 14px;
+	    height: 62px;
+	}
+	.detail-good-info ul li .price-number span.price{
+	    font-size: 14px;
+	    color:#32373c;
+	}
+	.detail-good-info ul li .price-number span.number{
+	    font-size:12px;
+	    color:#696969;
+	    position: absolute;
+	    top: 22px;
+	    right: 0;
+	}
+	.detail-good-info div p{
+	    padding: 14px 20px 14px 20px;
+	    border-bottom: 1px solid #e3e3e3;
+	    color: #555f69;
+	    font-size: 13px;
+	}
+	.detail-good-info div p span:nth-child(2){
+	    float: right;
+	}
+	.detail-good-info div p span:last-child{ 
+	    float: right;
+	} 
+
+}

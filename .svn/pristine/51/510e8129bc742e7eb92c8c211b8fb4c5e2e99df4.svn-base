@@ -1,0 +1,28 @@
+/**
+ * 
+ * @authors weilei.zhu (purelite.zhu@gmail.com)
+ * @date    2016-03-10 18:18:44
+ * @version $Id$
+ */
+
+var ButtonComp = require('comp/button/button');
+var GoodsListComp = require('comp/goodsList/goodsList');
+import { Link } from 'react-router'
+import './goodsDetailStyle'
+var Detail = React.createClass({
+	    getInitialState: function() {
+	    	console.log('goodsDetailstart',this.props)
+			return null;
+		},
+		render:function(){
+			return(
+				<div className="user">
+					<h1>详情详情</h1>
+					<p>type:{this.props.params.type}</p>
+					<p>key:{this.props.params.key}</p>
+					<GoodsListComp/>
+				</div>
+			) 
+		}
+});
+module.exports = Detail;

@@ -1,0 +1,60 @@
+@charset "UTF-8";
+ .footer{
+    z-index: 80;
+	height: 50px;
+	width: 100%;	
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	border-top: 1px solid #d8d8d8;
+	display:blcok;   
+    a{
+		display: block;
+		width: 25%;
+		text-align: center;
+		float: left;
+		color: #696969;
+		font-size: 12px;	
+	}	
+	a.active{
+	    color:#FF4650;
+	}
+	a span{
+		display: block;	
+		width: 22px;      
+		height: 22px;
+		margin: 6px  auto 3px;
+		background-image:url(http://img01.ttmimg.com/www/images/stonescms/2016160225/734fde120cc91603.png);
+		background-size: 126px auto;
+		background-repeat:no-repeat;
+	}
+	a:first-child span{
+	  background-position:-25px -21px;
+	}
+	a:first-child.active span{
+	  background-position:-26px 2px;
+	}
+	a:nth-child(2) span{
+	  background-image: url("http://img01.ttmimg.com/www/images/stonescms/9465c5ed0bb61243.png");
+      background-size: 22px 22px;
+	}
+	a:nth-child(2).active span{
+	    background-image: url("http://img01.ttmimg.com/www/images/stonescms/d79a36b2d961d620.png");
+        background-size: 22px 22px
+	}
+	a:nth-child(3) span{
+	    background-image: url("http://img01.ttmimg.com/www/images/stonescms/007bd248de618ba8.png");
+        background-size: 22px 22px;
+	}
+	a:nth-child(3).active span{
+	  background-image: url("http://img01.ttmimg.com/www/images/stonescms/d5b323f1f7164353.png");
+      background-size: 22px 22px;
+	}
+	a:last-child span{
+	  background-position:0 -21px;
+	}
+	a:last-child.active span{
+	  background-position:0 2px;
+	}
+ }

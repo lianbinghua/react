@@ -1,0 +1,269 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors weilei.zhu (purelite.zhu@gmail.com)
+ * @date    2016-03-10 17:50:22
+ * @version $Id$
+ */
+.detail{
+	/*background: yellow;*/
+    /*background-color: #f2f2f2;*/
+}
+
+.detail .goods-info {
+    padding: 10px 10px 12px;
+    background: #fff;
+    border-bottom: 1px solid #d8d8d8;
+}
+
+.detail .goods-info .tips_title {
+    color: #32373c;
+    font-size: 15px;
+    line-height: 25px;
+}
+.detail .goods-info p.tips {
+    color: #969696;
+    font-size: 12px;
+    line-height: 25px;
+}
+.detail .goods-info p.price .price_span_1{
+    color: #ff4650;
+    font-size: 18px;
+    margin-right: 12px;
+    vertical-align: -2px;
+}
+
+.detail .goods-info p.price .price_span_2 {
+  color: #fff;
+  font-size: 12px;
+  /*width:18px;
+  height:18px;*/
+  background: #ffbe5f;
+  border-radius: 5px;
+  margin-right: 10px;    
+  display: inline-block;
+  padding: 2px 6px;
+  text-align: center; }
+
+.detail .goods-info p.price .price_span_3 {
+  color: #fff;
+  font-size: 12px;
+  padding: 2px 6px;
+  background: #ffbe5f;
+  border-radius: 5px;
+  display: inline-block; }
+
+.detail .item {
+    background: #fff;
+    /*margin-top: 10px;*/
+    /*padding: 0 15px;*/
+    position: relative;
+    display: block;
+    padding: 12px 10px;
+    background-image: url(http://img01.ttmimg.com/www/images/stonescms/12169f3a861a7d85.png);
+    background-position: 96% 50%;
+    background-repeat: no-repeat;
+    background-size: 9px 15px;
+    border-bottom: 1px solid #d8d8d8;
+}
+.detail .item .left {
+    color: #555f69;
+    font-size: 15px;
+    float: left;
+}
+.detail .Js-address-result {
+    color: #32373c;
+    margin-left: 55px;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.detail .m-pro-tab {
+    background: #fff;
+    /*margin-top: 10px;*/
+    /*padding: 0 10px;*/
+    position: relative;
+    display: block;
+}
+.detail .m-pro-tab .tab-content {
+  width: 100%; }
+
+.detail .m-pro-tab p.content_null {
+  padding: 10px 0;
+  text-align: center; }
+
+.detail .m-pro-tab .tab-content img {
+  width: 100%; }
+
+.detail .m-pro-tab .tab-content table {
+  width: 100% !important; }
+
+.detail .navv-tabs {
+  height: 40px; }
+
+.detail .navv {
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none; }
+
+.detail .m-pro-tab .navv-tabs li {
+  float: left;
+  height: 100%;
+  width: 45%;
+  text-align: center;
+  font-size: 15px; }
+
+.detail .navv li span {
+   }
+
+.detail .m-pro-tab .navv-tabs .navv_active {
+  color: #f06252;}
+
+.detail .m-pro-tab .navv-tabs {
+  border-bottom: 1px solid #d8d8d8;
+  position: relative;
+  height: 20px;
+  padding: 10px 0; }
+
+.detail .navv-tabs li {
+  float: left;
+  margin-bottom: -1px; }
+
+.detail .navv li {
+  position: relative;
+  display: block;
+  border-right: 1px solid #d8d8d8; }
+
+.detail .navv li:last-child {
+  border-right: none;
+  width: 35%; }
+
+.detail .m-pro-tab .navv-tabs li a {
+  display: block;
+  color: #646464;
+  border: 0;
+  margin: 0;
+  padding: 0; }
+
+.detail .m-pro-tab .tab-content .tab-param ul li{
+  position: relative;
+  text-indent: 15px;
+  line-height: 40px;
+  font-size: 14px;
+  color: #363636;
+  border-bottom: 1px solid #d8d8d8;
+}
+.detail .m-pro-tab .tab-content .tab-param ul li span:first-child {
+    color: #727272;
+    width: 42%;
+    display: block;
+    float: left;
+}
+
+.detail .pre-order {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #d8d8d8;
+  background: #fff;
+}
+
+.detail .pre-order p{
+  font-size: 15px;
+  padding: 10px 10px; }
+
+.detail .pre-order p .span_pre{
+  color: #555f69;
+}
+.detail .pre-order p i{
+  color: #ff3e00;
+  font-size: 13px;
+  padding: 12px 5px; }
+
+.detail .pre-order p span.span_send{
+  font-size: 13px;
+}
+
+.detail .shopComment {
+     height: auto; 
+     overflow: hidden; 
+     border-bottom: 1px solid #d8d8d8;
+}
+.detail .shopComment ul.column-1 li dl {
+    height: 70px;
+    background: #FFF;
+    position: relative;
+}
+.detail .shopComment ul.column-1 li {
+    box-sizing: border-box;
+    position: relative;
+    background: #FFF;
+    height: 90px;
+    overflow: hidden;
+    margin: 10px 10px 0 10px;}
+.detail .shopComment ul.column-1 li dl dt {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    width: 80px;
+    height: 80px;
+}
+.detail .shopComment ul.column-1 li dl dd {
+    padding: 5px 10px 0 90px;
+    display: block;
+    overflow: hidden;
+    height: 70px;
+}
+.detail .shopComment .column-1 dd p{
+    display: block;
+    /*height: 38px;*/
+    margin-top: 10px;
+    line-height: 19px;
+    font-size: 16px;
+    text-align: left;
+    overflow: hidden;
+    color: #555f69;
+    font-weight: normal !important;
+}
+.detail .shopComment ul.column-1 li dl dt img {
+    height: 70px;
+    width: 70px;
+    border-radius:70px;
+    margin-top: 5px;
+    margin-left: 5px;
+    overflow: hidden;
+    border: solid 1px #d8d8d8;
+}
+.detail .shopComment .commentTxt{
+    /*padding: 10px 0;*/
+}
+.detail .shopComment .commentTxt p{
+    padding:0 10px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.detail .shopComment .commentTxt img {
+    height: 80px;
+    width: 80px;
+    float: left;
+    margin-left: 10px;
+    margin-bottom:10px;
+}
+.detail .tab-comment .see_more{
+    color: #555f69;
+    font-size: 16px;
+    padding: 10px 10px;
+}
+.detail .m-pro-tab .tab-comment p.see_more a {
+  color: #727272; }
+
+.detail .m-pro-tab .tab-comment .see_more .arrow {
+  background: url(http://img01.ttmimg.com/www/images/stonescms/eb13ddf7a7861552.png) no-repeat;
+  background-size: 178px auto;
+  width: 20px;
+  height: 20px;
+  display: block;
+  position: absolute;
+  bottom: 12px;
+  right: 5px;
+  background-position: -160px -37px; }

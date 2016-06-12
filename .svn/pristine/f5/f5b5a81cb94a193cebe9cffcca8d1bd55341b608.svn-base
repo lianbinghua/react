@@ -1,0 +1,10 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors weilei.zhu (purelite.zhu@gmail.com)
+ * @date    2016-03-10 17:50:22
+ * @version $Id$
+ */
+.notfound{
+	background: yellow;
+}

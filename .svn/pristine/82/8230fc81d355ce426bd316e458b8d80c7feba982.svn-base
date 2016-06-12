@@ -1,0 +1,18 @@
+import './loginStyle'
+
+var Login = React.createClass({
+	getInitialState:function(){
+		return {link: '/home' }
+	},
+	subClick:function(){
+
+	},
+	render:function(){
+		return(
+			<div>
+				<input/>
+			</div>
+		)
+	}
+});
+module.exports = Login;

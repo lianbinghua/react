@@ -1,0 +1,70 @@
+function redirectToLogin(nextState, replace) {
+  var isLogin = true;
+  if (!isLogin) {
+    replace({
+      pathname: '/login',
+      state: { nextPathname: nextState.location.pathname }
+    })
+  }
+}
+export default {
+  component: require('page/root/root'),
+  childRoutes: [
+    { path: '/',
+      indexRoute: {
+        getComponent: (location, cb) => {
+            return require.ensure([], (require) => {
+              cb(null, require('page/home/home'))
+            })
+          return cb()
+        }
+      }
+    },
+    { path: '/home',
+      getComponent: (location, cb) => {
+        require.ensure([], (require) => {
+          cb(null, require('page/home/home'))
+        })
+      }
+    },
+    { path: '/detail/:type/:key',
+      getComponent: (location, cb) => {
+          cb(null, require('page/goodsDetail/goodsDetail'))
+      }
+    },
+    { path: '/tutor',
+      getComponent: (location, cb) => {
+        require.ensure([], (require) => {
+          cb(null, require('page/tutor/tutor'))
+        })
+      }
+    },
+    { path: '/discover',
+      getComponent: (location, cb) => {
+        require.ensure([], (require) => {
+          cb(null, require('page/discover/discover'))
+        })
+      }
+    },
+    { path: '/user',
+      getComponent: (location, cb) => {
+        require.ensure([], (require) => {
+          cb(null, require('page/user/user'))
+        })
+      }
+    },
+    { onEnter: redirectToLogin,
+      childRoutes: [
+        { path: '/user/:id',
+          getComponent: (location, cb) => {
+            require.ensure([], (require) => {
+              //cb(null, require('page/components/User'))
+            })
+          }
+        }
+      ]
+    },
+
+
+  ]
+}

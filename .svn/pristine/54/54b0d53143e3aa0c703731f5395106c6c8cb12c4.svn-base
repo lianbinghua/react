@@ -1,0 +1,104 @@
+import * as types from '../../constants/constants'
+import {PropTypes} from 'react'
+import { Link } from 'react-router'
+import { connect } from 'react-redux'
+import Footer from 'comp/footer/footer'
+import Button from 'comp/button/button'
+import 'css/common'
+import './updateNameStyle'
+
+var nickName;
+var UpdateName = React.createClass({  
+	getInitialState:function(){
+		return{
+			errorMsg:""
+		}
+	},
+	componentDidMount:function(){
+
+	},
+	removeErrorMsg:function(){
+    	this.setState({errorMsg:""})
+    },
+	submitClick:function(){
+		nickName = this.refs.newName.value;
+		if(nickName == ''){
+			this.setState({
+				errorMsg:"昵称不能为空！"
+			});
+			return;
+		}
+		if(!this.nickNameCheck()){
+			this.setState({
+				errorMsg:"昵称是由中文、英文、数字、“_”、“-”组成的4-15个字符"
+			});
+			return;
+		}
+		var _this = this;
+		$.sendData({
+			url:types.API+'/authorize/MainServlet?method=updateNickName&req_fmt_type=jsonp&req_str={"nickName":"'+nickName+'","scope":"11102"}',
+			success:function(data){
+				if((data.Result.Header.resultID == 0)){     		
+					_this.setNewNicknameCookie(nickName);
+					alert('修改成功');
+    				location.href="http://nine.tootoo.cn/myAccount";
+	        	}else{
+	        		_this.setState({
+	        			errorMsg:data.Result.Header.resultMessage
+	        		});
+	        	}
+			}
+		})
+	},
+	nickNameCheck:function(){
+		var roughReg = /^([a-zA-Z0-9\-_\u4e00-\u9fa5]+)$/;
+        var  re = new RegExp(roughReg);
+        if(this.lengthmix(nickName)>15 || this.lengthmix(nickName)<4){
+            return false;
+        }else if(!re.test(nickName)){
+            return false;
+        }else{
+            return true;
+        }
+	    var  re = new RegExp(reg);
+	    if( re.test(nickName))
+	        return true;
+	    else return false;
+	},
+	setNewNicknameCookie:function(nickName){
+		var name=  $.cookie('u');
+        $.removeCookie('u');
+        if (typeof name == 'undefined' ||  name == ''  || name == null){
+            return false;
+        }
+        var arr= new Array();
+        arr= name.split("|");
+        if( arr.length <5 ) return false;
+        arr[1]=nickName;
+        var str= arr.join("|");
+        $.cookie("u",str,{domain:'.tootoo.cn'});
+	},
+	lengthmix:function(str){
+	    var reg = /^[\u4e00-\u9fa5]{1}$/;
+	    var len = str.length;
+	    var len2 = str.length;
+	    for(var i=0;i<len2;i++){
+	        var re = new RegExp(reg);
+	        if( re.test(str.charAt(i)))
+	            len++;
+	    }
+	    return len;
+	},
+	render:function(){
+		return(
+			<div className="updateName">
+			    <ul>
+			      	<li><span className="updateName_icon"></span><input type="text" ref="newName" onFocus={this.removeErrorMsg} placeholder="请输入新昵称" /></li>
+			    </ul>
+			    <div className="updateName-error-msg"><span>{this.state.errorMsg}</span></div>
+			    <Button handleClick={this.submitClick} className="mt10" name="确定"/>
+			</div>
+		)
+	}
+});
+module.exports = UpdateName;

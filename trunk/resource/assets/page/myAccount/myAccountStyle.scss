@@ -1,0 +1,25 @@
+@charset "UTF-8";
+.myAccount{
+	.colf06450{ color: #f06450;}
+	.fr{ float: right;}
+	.col727272{ color: #727272;}
+	.f13{ font-size: 13px;}
+	.pd10 {
+	    padding: 10px 10px 10px 0;
+	}
+	.f15{ font-size: 15px;}
+	.col363636{ color: #363636;}
+	ul{ 
+		background: #FFFFFF; border-bottom: #d8d8d8 solid 1px;
+		li{ 
+			height:44px; border-bottom:#d8d8d8 solid 1px; background:#ffffff; line-height:24px; position:relative; margin-left: 15px;
+			a{ display:block;}
+			.list_l{ width:94%;}
+			.list_r{ 
+				width:10%;
+				.arrow_r{ background:url(http://img01.ttmimg.com/www/images/stonescms/608f385052cdb7e0.png) no-repeat; height:15px; width:9px; display:block; cursor:pointer; background-size:9px 15px; position:absolute; right:15px; top:14px;}
+			}
+		}
+		li:last-child{ border-bottom: none;}
+	}
+}

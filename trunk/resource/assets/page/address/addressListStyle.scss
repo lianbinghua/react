@@ -1,0 +1,139 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors weilei.zhu (purelite.zhu@gmail.com)
+ * @date    2016-03-15 10:32:41
+ * @version $Id$
+ */
+
+.addressList{	
+	background: #f2f2f2;
+	ul li {
+	    margin-bottom: 15px;
+	    width: 100%;
+	    height: auto;
+	    border-bottom: solid 1px #d8d8d8;
+	    background: #FFFFFF;
+	    position: relative;
+	}
+	ul li .address_txt {
+	    border-bottom: dashed 1px #d8d8d8;
+	    padding: 15px;
+	    height: auto;
+	    position: relative;
+	}
+	ul li .address_txt p {
+	    clear: both;
+	    line-height: 22px;
+	    position: relative;
+	    margin-left: 25px;
+	    word-wrap: break-word;
+	    word-break: break-all;
+	    color: #727272;
+	    font-size: 13px;
+	}
+	ul li .address_txt p.ml {
+	    margin-left: 0;
+	}
+    .col363636 {
+	    color: #363636;
+	}
+	.fl {
+	    float: left;
+	}
+	.fr {
+	    float: right;
+	}
+	.f15 {
+	    font-size: 15px;
+	}
+	ul li .address_txt p.pd5 {
+	    padding-top: 5px;
+	}
+	.address_manage {
+	    height: 40px;
+	    width: 100%;
+	    line-height: 40px;
+	}
+	.xg_del {
+	    width: 140px;
+	    height: 40px;
+	}
+	.xg_del .xg {
+	    width: 70px;
+	    height: 40px;
+	}
+	.xg_del .xg .xgicon {
+	    background: url(http://img01.ttmimg.com/www/images/stonescms/e9d50978670f54ba.png) no-repeat;
+	    background-size: 18px 18px;
+	    width: 18px;
+	    height: 18px;
+	    display: block;
+	    margin-top: 10px;
+	}
+	.xg_del a span {
+	    color: #555f69;
+	}	
+	.ml5 {
+	    margin-left: 5px;
+	}
+	.f13 {
+	    font-size: 13px;
+	}
+	.xg_del .del .delicon {
+	    background: url(http://img01.ttmimg.com/www/images/stonescms/1a2fd987aa1c8cfc.png) no-repeat;
+	    background-size: 18px 18px;
+	    width: 18px;
+	    height: 18px;
+	    display: block;
+	    margin-top: 10px;
+	}
+	.emptyAddress{
+	    width: 140px;
+	    height: 180px;
+	    position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    margin-left: -70px;
+	    margin-top: -90px;
+	}
+	.emptyAddress .emptyAddress-img{
+	    display: block;
+	    background: url('http://img01.ttmimg.com/www/images/stonescms/2016160226/e1c9cdbf80fce11e.png') no-repeat;
+	    width: 140px;
+	    height: 140px;
+	    background-size: 140px 140px;
+	    margin: 0 auto 10px;
+	}
+	.emptyAddress p{
+	    color: #b2b2b2;
+	    font-size: 18px;
+	    text-align: center;
+	    font-size: 15px;
+	}
+	.emptyAddress .greateAddress{
+	    width: 74px;
+	    height: 28px;
+	    line-height: 28px;
+	    margin: 10px auto;
+	    border: 1px #727272 solid;
+	    border-radius: 2px;
+	    color:#727272;
+	    text-align: center;
+	    display: block;
+	    font-size: 12px;
+	}
+	.add-address{
+		height: 50px;
+	    position: fixed;
+	    color: #727272;
+	    text-align: center;
+	    bottom: 0;
+	    left: 0;
+	    right: 0;
+	    line-height: 50px;
+	    border: none;
+	    font-size: 14px;
+	    background: #f2f2f2;
+	}
+}

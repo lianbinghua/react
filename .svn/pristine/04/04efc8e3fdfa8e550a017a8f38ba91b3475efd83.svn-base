@@ -1,0 +1,8 @@
+
+import Root from 'page/root/root'
+import 'css/common'
+
+ReactDOM.render(
+  <Root/>,
+  document.getElementById('app')
+)

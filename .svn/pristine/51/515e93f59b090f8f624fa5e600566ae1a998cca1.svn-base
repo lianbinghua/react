@@ -1,0 +1,6 @@
+var Tutor =  React.createClass({
+	render:function(){
+		return <div>这是攻略这是攻略这是攻略这是攻略这是攻略</div>
+	}
+});
+module.exports = Tutor;

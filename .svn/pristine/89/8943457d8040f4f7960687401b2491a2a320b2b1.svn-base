@@ -1,0 +1,41 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors weilei.zhu (purelite.zhu@gmail.com)
+ * @date    2016-03-10 17:50:22
+ * @version $Id$
+ */
+a{
+	text-decoration: none;
+}
+.home{
+	background:#9e9e9e;
+}
+.Image {
+  
+  height: 400px;
+  
+}
+
+.home-enter {
+  opacity: 0.01;
+  transition: opacity .5s ease-in;
+}
+
+.home-enter.home-enter-active {
+  opacity: 1;
+}
+
+.home-leave {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}
+
+.home-leave.home-leave-active {
+  opacity: 0;
+}
+
+.link-active {
+  color: #bbbbbb;
+  text-decoration: none;
+}

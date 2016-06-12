@@ -1,0 +1,26 @@
+import Header from 'comp/header/header'
+import Footer from 'comp/footer/footer'
+import { connect } from 'react-redux';
+
+var Tutor =  React.createClass({
+	componentDidMount:function(){
+	},
+	render:function(){
+		return(
+			<div>
+				<Header/>
+				<div>{this.props.name}</div>
+				<Footer/>
+			</div>
+
+		) 
+	}
+});
+
+function mapStateToProps(state){
+	return {
+		name:'这是什么 是攻略啊啊啊啊啊'
+	}
+}
+//module.exports = Tutor;
+export default connect(mapStateToProps)(Tutor);

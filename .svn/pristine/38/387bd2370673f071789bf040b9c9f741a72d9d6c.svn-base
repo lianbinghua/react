@@ -1,0 +1,19 @@
+/**
+ * 
+ * @authors weilei.zhu (purelite.zhu@gmail.com)
+ * @date    2016-03-10 18:18:44
+ * @version $Id$
+ */
+
+import './notFoundStyle'
+var NotFound = React.createClass({
+		render:function(){
+			return(
+				<div className="notfound">
+						<h1>你来到了外星</h1>
+				</div>
+			) 
+		}
+});
+//export default connect()(User)
+module.exports = NotFound;

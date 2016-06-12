@@ -1,0 +1,263 @@
+/**
+ * 
+ * @authors weilei.zhu (purelite.zhu@gmail.com)
+ * @date    2016-03-13 14:28:39
+ * @version $Id$
+ */
+
+import './orderStyle'
+import * as types from '../../constants/constants'
+var CancelBtn=React.createClass({	
+	handleClick:function(){
+       this.props.cancelBtn();
+	},
+	render:function(){	  
+	  var orderList=this.props.data; 	  
+	  return(
+           <a className={orderList.isShowCancel==1 && orderList.orderType!=5 && orderList.orderType!=6?'cancellBtn cancel-show':'cancellBtn cancel-hide'} onClick={this.handleClick}>取消订单</a>
+	     )	  
+	}
+})
+var PayBtn=React.createClass({
+	render:function(){	   	
+        var orderList=this.props.data;         
+		return(
+	        <a className={orderList.isShowToPay==1 && orderList.orderType!=5 && orderList.orderType!=6?'gopayBtn pay-show':'gopayBtn pay-show'} id={orderList.orderCode}>去支付</a>
+		) 
+	}
+})
+var OrderMoney=React.createClass({
+	render:function(){		
+		var orderList=this.props.data;
+		if(orderList.hasChild==1 && orderList.orderType !=5 && orderList.orderType !=6){          
+           return(            
+             	<div>
+             	 {
+	             	 orderList.childList.map(function(items,i){	             	 	
+	             		return(
+	                      <p key={i}>订单金额：<span className="fb">￥{items.orderCallFee.toFixed(2)}</span></p>
+	             		)
+	             	 })
+             	 }
+             	</div>
+             
+           	)
+		}else{
+            return(
+                    <p>订单金额：<span className="fb">￥{orderList.orderCallFee.toFixed(2)}</span></p>
+             	)
+		}
+	}
+});
+var ChildList=React.createClass({
+	  handleClick:function(){
+	    this.props.goDetail();
+	  },
+	  render:function(){	  	
+	  	var orderList=this.props.data;
+	  	if(orderList.hasChild==1 && orderList.childList.length>0){
+          return(
+             <div>
+               { 
+                orderList.childList.map(function(items){
+                    return(
+                        <div className="text pd10" key={items.orderCode} onClick={this.handleClick}>
+			                <p>子订单号：<span className="bold">{items.orderCode}</span></p>
+			                <p>订单状态：<span className="colf06450">{items.orderStatusMsg}</span></p>	                
+			                 {<OrderMoney data={orderList}/>}               
+			            </div>				        
+                    )
+                })
+                }
+                </div>             	
+          	)
+	  	}else{
+	  		return(<div className="text pd10" onClick={this.handleClick}>
+	                  <p>订单状态：<span className="colf06450">{orderList.orderStatusMsg}</span></p>	
+	                   {<OrderMoney data={orderList}/>} 	                                  
+	               </div>)
+	  	}
+	   
+	
+	  }
+});
+var ImageList=React.createClass({
+	 handleClick:function(){	 	
+        this.props.goDetail();
+	 },
+	 render:function(){
+	 	
+        var orderList=this.props.data;  
+        var childList=orderList.childList;
+        var orderItemList=orderList.orderItemList;
+        if(orderList.hasChild==1){
+          return(            
+              <div>
+                 <div className="goodList" onClick={this.handleClick}>
+                   <ol>
+		                {
+			            	childList.map(function(items){
+			            	  items.childItemList.map(function(lists,i){
+			                      return(	                      
+			                         <li key={i}><img src={lists.goodsPic}/></li>	                       
+			                   	  )
+			            	  })                   
+			            	})
+		                }
+                 </ol>
+                </div>
+              </div>            
+          )
+        }else{
+          return(
+          	<div>
+          	  <div className="goodList" onClick={this.handleClick}>
+	            <ol>
+		          	{
+			          	orderItemList.map(function(items,i){
+			               return(
+			                       <li key={i}><img src={items.goodsPic}/></li>			                       
+			                   	  )
+			          	})
+		            }
+                </ol>
+              </div>
+          	</div>
+          )
+        }
+        
+	 }
+})
+var OrderBtn=React.createClass({	
+	cancelBtn:function(){
+      var orderCode=this.props.data.orderCode;
+      var url=types.API+'/oms/MainServlet?method=orderCancelByUser&req_fmt_type=jsonp&req_str={"scope":"11102",'+
+		        '"orderCode":"'+orderCode+'","isBeforeCheck":"1"}';     
+       $.sendData({
+	        url:url, 
+	        success: function(_data) {	        	      
+	                    if(_data.Result.Header.resultID==0){
+				         	if(_data.Result.Data.resultStatus==0){
+				                var sure=confirm("您确认要取消该订单吗？");
+					            if(sure){
+					            	this.cancelOrder();
+					            }
+				            }else{ 				                
+				                alert("该订单已提交过取消申请，系统正尝试取消订单")          
+				            }
+				         }
+				     }.bind(this)
+	    });
+
+	},
+	cancelOrder:function(){
+		var orderCode=this.props.data.orderCode;
+        var url=types.API+'/oms/MainServlet?method=orderCancelByUser&req_fmt_type=jsonp&req_str={"scope":"11102",'+
+		        '"orderCode":"'+orderCode+'","isBeforeCheck":"0","cancelReason":"10"}';
+		$.sendData({
+	        url:url, 
+	        success: function(_data) {	        	      
+	                    if(_data.Result.Header.resultID==0){
+				         	if(_data.Result.Data.resultStatus==1){				                
+				                alert("订单取消申请已提交，系统正尝试取消订单");
+				            }else{				                 
+				                alert("该订单已提交过取消申请，系统正尝试取消订单");           
+				            }
+				         }
+				     }.bind(this)
+	    });
+	},
+    render:function(){    	
+    	var orderList=this.props.data;    	      
+    	return(
+             <div className={orderList.isShowToPay==1 || orderList.isShowCancel==1?'order-btn order-btn-show':'order-btn order-btn-hide'}>
+                {<CancelBtn data={orderList} cancelBtn={this.cancelBtn} />}
+                {<PayBtn data={orderList}/>}
+              </div>
+         )
+    }
+})
+var List=React.createClass({
+	contextTypes: {
+    		router: React.PropTypes.object
+  		},
+	 handleClick:function(){
+	 	var orderList=this.props.data;
+	 	var orderGeneration=1;
+	 	orderList.hasChild==1? orderGeneration=2:orderGeneration=1;
+        this.context.router.push('orderDetail/'+orderList.orderCode+'/'+orderGeneration+'/'+orderList.orderID);
+	 },
+     render:function(){           	
+     	var orderList=this.props.data;     
+        return(
+	        <li className="order-list" orderCode={orderList.orderCode}>
+		      <div className="time-pay">
+		        <span>{orderList.hasChild==1?'父':''}订单号:</span>
+		        <span>{orderList.orderCode}</span>
+		      </div>  
+              {<ChildList data={orderList} goDetail={this.handleClick} />}
+              {<ImageList data={orderList} goDetail={this.handleClick} />}
+              {<OrderBtn data={orderList}/>}              
+		   </li>  
+	    )             
+     }
+});
+var Order =  React.createClass({	
+	getInitialState: function() {
+	    return {
+	    	arr: [],
+	    	pageNo:1
+	    };
+	},
+    getDefaultProps:function(){
+        return{
+        	loading:true
+        }
+    },
+	componentDidMount:function(){	   
+	    this.getData();	   	   
+	},	
+	getData:function(){
+       var url=types.API+'/oms/MainServlet?method=getOrderList&req_fmt_type=jsonp&req_str={"scope":"11102",'+
+		        '"orderStatus":"0","orderType":"0","startTime":"2015-01-01","endTime":"'+$.getDay()+'","keyword":"null",'+
+		        '"orderCode":"null","pageSize":"10","pageNo":"'+this.state.pageNo+'","isNeedItems":"1"}';
+      
+       $.sendData({
+	        url:url, 
+	        success: function(data) {	        	      
+	                   var newArr=this.state.arr.concat(data.Result.Data.orderList);        	      
+				       this.setState({arr:data.Result.Data.orderList});
+				     }.bind(this)
+	    });
+	},	
+	render:function(){	
+		  
+          if(this.state.arr.length>0){          
+          	return (          		
+          		<div className="order"> 
+					<ul>
+	                  {
+	                  	this.state.arr.map(function(items,i){	                  		
+			                 return(<List key={i} data={items}/>)
+			          	})
+	                  }
+					</ul>
+                   
+				</div>
+			)
+          }else{
+          	return(
+               <div className="order">
+	      		  <div className="no-order">
+	                <span></span>
+	                <p>没有相关订单</p>
+	              </div>
+	            </div>
+          	)
+          }
+
+	   
+
+	}
+});
+module.exports = Order;

@@ -1,0 +1,86 @@
+/**
+ * 
+ * @authors weilei.zhu (purelite.zhu@gmail.com)
+ * @date    2016-03-09 11:27:38
+ * @version $Id$
+ */
+	var sendData = function (){
+        function ajax(options) {
+            options = options || {};
+            options.type = (options.type || "GET").toUpperCase();
+            options.dataType = options.dataType || "json";
+            var params = formatParams(options.data);
+            if (window.XMLHttpRequest) {
+                var xhr = new XMLHttpRequest();
+            } else { 
+                var xhr = new ActiveXObject('Microsoft.XMLHTTP');
+            }
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+                    var status = xhr.status;
+                    if (status >= 200 && status < 300) {
+                        options.success && options.success(xhr.responseText, xhr.responseXML);
+                    } else {
+                        options.fail && options.fail(status);
+                    }
+                }
+            }
+            if (options.type == "GET") {
+                xhr.open("GET", options.url + "?" + params, true);
+                xhr.send(null);
+            } else if (options.type == "POST") {
+                xhr.open("POST", options.url, true);
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhr.send(params);
+            }
+        }
+
+        function jsonp(options) {
+            options = options || {};
+            if (!options.url) {
+                throw new Error("Parameter is not valid");
+            }
+            var callbackName = ('jsonp_' + Math.random()).replace(".", "");
+            var oHead = document.getElementsByTagName('head')[0];
+            //options.data[options.callback] = callbackName;
+            //var params = formatParams(options.data);
+            var oS = document.createElement('script');
+            oHead.appendChild(oS);
+            window[callbackName] = function (json) {
+                oHead.removeChild(oS);
+                clearTimeout(oS.timer);
+                window[callbackName] = null;
+                options.success && options.success(json);
+            };
+            if(options.url.indexOf('?') == -1){
+                oS.src = options.url+ '?callback=' + callbackName;
+            }else{
+                oS.src = options.url+ '&callback=' + callbackName;
+            }
+            if (options.time) {
+                oS.timer = setTimeout(function () {
+                    window[callbackName] = null;
+                    oHead.removeChild(oS);
+                    options.fail && options.fail({ message: "timeOut" });
+                }, time);
+            }
+        };
+        function formatParams(data) {
+	        var arr = [];
+	        for (var name in data) {
+	            arr.push(encodeURIComponent(name) + '=' + encodeURIComponent(data[name]));
+	        }
+	        return arr.join('&');
+	    }
+        return function(options){
+            var mat = options.url.match(/https?:\/\/([^\/]+)/);
+            if (mat && location.host != mat[0]) {
+                return jsonp(options);
+            } else {
+                return ajax(options);
+            }
+        };
+
+    }();
+    $.sendData = sendData;
+

@@ -1,0 +1,13 @@
+import * as types from '../constants/constants'
+//获取cms数据
+export function hideBar(){
+  return {
+    type: types.HIDE_BAR
+  }
+}
+
+export function showBar(){
+  return {
+    type: types.SHOW_BAR
+  }
+}
