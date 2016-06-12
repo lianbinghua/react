@@ -1,2 +1,6 @@
 # react
-react project
+react+redux+weback
+
+webpack配置：
+
+
