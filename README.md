@@ -1,4 +1,7 @@
 # react
+
+启动服务：npm start
+
 react+redux+weback
 
 webpack配置：
