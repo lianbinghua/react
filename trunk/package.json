@@ -4,7 +4,7 @@
   "description": "meishijiuduan@tootoo.cn",
   "main": "index.js",
   "scripts": {
-    "test": "webpack-dev"
+    "start": "webpack-dev-server --inline --content-base . --history-api-fallback"
   },
   "keywords": [
     "react",
